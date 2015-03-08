@@ -16,7 +16,16 @@ exports.grava = function(req, res) {
 
 	filme.save(function(err, filme) {
 		if(err) return console.log(err);
-		res.send('Filme ' + filme.titulo  + ' recebido no servidor.');
+		res.send(filme);
 	});
 
 };
+
+
+exports.deleta = function(req, res) {
+    var id = req.params.id;
+    
+    Filme.findByIdAndRemove(id, function(error, filme) {
+        res.send('Filme ' + filme.titulo + ' removido com sucesso');
+    });
+}

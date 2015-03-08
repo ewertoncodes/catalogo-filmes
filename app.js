@@ -16,9 +16,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', routes.index);
 app.get('/lista', routes.lista);
 app.post('/grava', routes.grava);
+app.delete('/filme/:id', routes.deleta);
 
-
-app.set('port', process.env.port || 8080);
+app.set('port', process.env.port || 4000);
 
 var server = app.listen(app.get('port'), function() {
 	console.log('Servidor foi startado na porta ' + server.address().port);
