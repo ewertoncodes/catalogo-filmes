@@ -1,8 +1,9 @@
-function FilmesController($http, $scope) {
-  $http.get('/lista')
-  .success(function(retorno) {
-    $scope.filmes = retorno.filmes;
-  });
+angular.module('catalogo')
+    .controller('FilmesController', function($http, $scope) {
+    $http.get('/lista')
+    .success(function(retorno) {
+        $scope.filmes = retorno.filmes;
+    });
 
   function Filme() {
     this.nome = '';
@@ -51,4 +52,4 @@ var atualizaFilme = function(){
       adicionaFilme();
     }
   }
-}
+});
